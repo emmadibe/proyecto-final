@@ -1,0 +1,20 @@
+String emailBodyJugador = String.format("""
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Felicitaciones, campeones!</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+<h2>🏆 ¡Felicitaciones, equipo campeón!</h2>
+<p>Querido jugador,</p>
+<p>¡Tu equipo ha ganado el torneo de videojuegos <strong>%s</strong>! 👏</p>
+<p>Gracias por participar y por dejarlo todo en cada partido. Fue un torneo emocionante y su desempeño fue impecable.</p>
+<p>Esperamos contar con vos en las próximas ediciones. ¡Seguí entrenando y nos vemos en la próxima competencia!</p>
+<br>
+<p>El equipo de organización.</p>
+<hr>
+<small>Este mensaje fue enviado automáticamente. Por favor, no responder a este correo.</small>
+</body>
+</html>
+""", tournament.getName());

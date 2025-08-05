@@ -1,0 +1,21 @@
+String emailBodyCapitan = String.format("""
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Sos el capitán del equipo campeón!</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+<h2>🥇 ¡Felicitaciones, capitán!</h2>
+<p>Hola <strong>%s</strong>,</p>
+<p>Tu liderazgo fue clave para que el equipo lograra la victoria en el torneo <strong>%s</strong>. ¡Felicitaciones!</p>
+<p>Te agradecemos por inscribir al equipo, motivar a tus compañeros y llevarlos hasta la cima.</p>
+<p>Como capitán del equipo campeón, te invitamos a participar en futuras ediciones y a seguir representando con orgullo.</p>
+<br>
+<p>Un gran saludo,</p>
+<p>El equipo organizador.</p>
+<hr>
+<small>Este mensaje fue enviado automáticamente. Por favor, no responder a este correo.</small>
+</body>
+</html>
+""", capitan.getUsername(), tournament.getName());
