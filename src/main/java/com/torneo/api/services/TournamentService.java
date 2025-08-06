@@ -30,18 +30,14 @@ public class TournamentService {
     public TournamentResponseDTO createTournament(TournamentRequestDTO dto) {
         validarCupo(dto.getMaxTeams());
 
-        User organizer = userRepository.findById(dto.getOrganizerId())
-                .orElseThrow(() -> new NotFoundException("Organizador no encontrado"));
-
         Tournament tournament = Tournament.builder()
                 .name(dto.getName())
                 .game(dto.getGame())
                 .category(dto.getCategory())
-                .state(dto.getState())
-                .startDate(dto.getStartDate())
-                .endDate(dto.getEndDate())
-                .organizer(organizer)
                 .maxTeams(dto.getMaxTeams())
+                .state(GamesState.INSCRIPTION)
+                .endDate(null)
+                .startDate(null)
                 .build();
 
         return mapToResponseDTO(tournamentRepository.save(tournament));
@@ -53,16 +49,12 @@ public class TournamentService {
         Tournament tournament = tournamentRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Torneo no encontrado"));
 
-        User organizer = userRepository.findById(dto.getOrganizerId())
-                .orElseThrow(() -> new NotFoundException("Organizador no encontrado"));
-
         tournament.setName(dto.getName());
         tournament.setGame(dto.getGame());
         tournament.setCategory(dto.getCategory());
-        tournament.setState(dto.getState());
-        tournament.setStartDate(dto.getStartDate());
-        tournament.setEndDate(dto.getEndDate());
-        tournament.setOrganizer(organizer);
+        tournament.setState(GamesState.INSCRIPTION);
+        tournament.setStartDate(null);
+        tournament.setEndDate(null);
         tournament.setMaxTeams(dto.getMaxTeams());
 
         return mapToResponseDTO(tournamentRepository.save(tournament));
@@ -110,9 +102,7 @@ public class TournamentService {
                 .game(t.getGame())
                 .category(t.getCategory())
                 .state(t.getState())
-                .organizerUsername(t.getOrganizer().getUsername())
                 .startDate(t.getStartDate())
-                .endDate(t.getEndDate())
                 .maxTeams(t.getMaxTeams())
                 .build();
     }

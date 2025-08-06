@@ -18,6 +18,4 @@ public interface TournamentRepository extends JpaRepository<Tournament, Long> {
 
     List<Tournament> findByStartDate(LocalDate startDate);
 
-    List<Tournament> findByOrganizer_Id(Long id);
-
 }

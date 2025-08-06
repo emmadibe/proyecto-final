@@ -9,8 +9,7 @@ public enum GamesState
 {
     ACTIVE("Active", 1),
     FINISHED("Finished", 2),
-    INSCRIPTION("Inscription", 3),
-    NEXT("Next", 3);
+    INSCRIPTION("Inscription", 3);
 
     private String name;
     private int orden;

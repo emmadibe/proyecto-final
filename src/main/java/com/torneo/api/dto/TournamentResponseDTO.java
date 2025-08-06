@@ -21,7 +21,6 @@ public class TournamentResponseDTO {
     private String game;
     private GamesCategory category;
     private GamesState state;
-    private String organizerUsername;
     private LocalDate startDate;
     private LocalDate endDate;
     private Integer maxTeams;
